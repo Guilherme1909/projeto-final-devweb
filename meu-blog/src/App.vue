@@ -4,6 +4,9 @@
 
 <script setup>
 defineOptions({
-  name: 'App'
+  name: 'App',
+  created () {
+    this.$q.dark.set(true)
+  }
 });
 </script>

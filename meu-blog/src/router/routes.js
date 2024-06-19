@@ -7,6 +7,11 @@ const routes = [
     ]
   },
 
+  {
+    path: '/ValidadorCpf',
+    component: () => import('pages/ValidadorCpf.vue')
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
