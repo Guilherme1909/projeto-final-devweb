@@ -2,11 +2,12 @@
   <router-view />
 </template>
 
+<style>
+/* estilos globais */
+</style>
+
 <script setup>
 defineOptions({
-  name: 'App',
-  created () {
-    this.$q.dark.set(true)
-  }
+  name: 'App'
 });
 </script>
