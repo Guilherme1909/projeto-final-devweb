@@ -25,7 +25,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container>
+    <q-page-container class="main-padding">
       <router-view />
     </q-page-container>
 
@@ -48,6 +48,11 @@
   flex-grow: 1;
   align-items: center;
   overflow-x: auto;
+}
+
+.main-padding {
+  padding-left: 350px;
+  padding-right: 350px;
 }
 </style>
 
