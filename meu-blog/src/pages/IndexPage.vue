@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <div class="text-center team-position">#1</div>
+            <div class="text-center team-position">#?</div>
           </div>
 
           <div style="display: flex; font-size: 15px">
@@ -41,7 +41,8 @@
                 <span>{{ teamInfo.fixtures.loses.total }}</span>
               </div>
             </div>
-            <div>
+            <q-separator dark vertical />
+            <div style="margin-left: 20px">
               <div class="stats-team-info">
                 <span>Gols Marcados: </span>
                 <span>{{ teamInfo.goals.for.total.total }}</span>
@@ -75,7 +76,7 @@
     </div>
   </div>
   <div v-else class="flex justify-center items-center">
-    <div>Erro! Código VERMELHO!!!</div>
+    <div>Pensando....</div>
   </div>
 </template>
 
@@ -123,15 +124,21 @@ export default {
     },
   },
   mounted() {
-    getTeamInfo((data) => {
-      this.teamInfo = data;
-    });
-    getFixtures((data) => {
-      this.fixtures = data;
-    });
-    getStandings((data) => {
-      this.standings = data;
-    });
+    getTeamInfo()
+      .then((teamInfo) => {
+        this.teamInfo = teamInfo;
+        return getFixtures();
+      })
+      .then((fixtures) => {
+        this.fixtures = fixtures;
+        return getStandings();
+      })
+      .then((standings) => {
+        this.standings = standings;
+      })
+      .catch((error) => {
+        console.error("Erro ao carregar dados:", error);
+      });
   },
 };
 </script>
@@ -159,7 +166,7 @@ export default {
   background-color: rgb(255, 0, 0);
   border: 1px solid black;
   border-radius: 10px;
-  margin-right: 80px;
+  margin-right: 60px;
 }
 
 /* últimas 5 */

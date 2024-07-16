@@ -17,22 +17,38 @@ const getFixtures = (callback) => {
     },
   };
 
+  // if (USE_SAMPLE) {
+  //   const retorno = getFixturesSample();
+  //   //console.log(retorno.response);
+  //   if (callback) callback(retorno.response);
+  //   return;
+  // }
+
+  // axios
+  //   .request(options)
+  //   .then((response) => {
+  //     //console.log(response.data.response);
+  //     if (callback) callback(response.data.response);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+
   if (USE_SAMPLE) {
-    const retorno = getFixturesSample();
-    //console.log(retorno.response);
-    if (callback) callback(retorno.response);
-    return;
+    console.log(getFixturesSample().response);
+    return Promise.resolve(getFixturesSample().response);
   }
 
-  axios
-    .request(options)
-    .then((response) => {
-      //console.log(response.data.response);
-      if (callback) callback(response.data.response);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  return new Promise((resolve, reject) => {
+    axios
+      .request(options)
+      .then((response) => {
+        resolve(response.data.response);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 };
 
 export default getFixtures;

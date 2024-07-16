@@ -2,7 +2,11 @@
   <q-page class="q-pa-md">
     <q-card>
       <q-card-section>
-        <div v-if="leagueName" class="text-h6">
+        <div
+          v-if="leagueName"
+          class="text-h6"
+          style="color: black; font-weight: bold"
+        >
           {{ leagueName }} - {{ season }}
         </div>
       </q-card-section>

@@ -1,7 +1,7 @@
 <template>
   <q-card class="my-card">
     <q-card-section>
-      <div class="campeonato-card">
+      <div class="campeonato-card text-center">
         <div
           href="/pt/torneio/futebol/brazil/brasileirao-serie-a/325#id:58766"
           style="overflow: hidden; text-overflow: ellipsis"
@@ -31,7 +31,7 @@
               >
             </div>
             <div>
-              <span>Finalizado</span>
+              <span>{{ game.fixture.status.long }}</span>
             </div>
           </div>
           <div class="justify-center outer-div">

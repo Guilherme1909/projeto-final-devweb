@@ -1,5 +1,5 @@
 <template>
-  <div v-if="games.length === 0">Erro! Código VERMELHO!!!</div>
+  <div v-if="games == null">Erro! Game List!!!</div>
   <div v-else>
     <game-card v-for="game in games" :key="game.fixture.id" :game="game" />
   </div>
