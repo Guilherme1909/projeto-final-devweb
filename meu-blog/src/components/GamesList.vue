@@ -1,5 +1,13 @@
 <template>
-  <div v-if="games == null">Erro! Game List!!!</div>
+  <div v-if="games == null">
+    <q-circular-progress
+      indeterminate
+      rounded
+      size="50px"
+      color="lime"
+      class="q-ma-md"
+    />
+  </div>
   <div v-else>
     <game-card v-for="game in games" :key="game.fixture.id" :game="game" />
   </div>

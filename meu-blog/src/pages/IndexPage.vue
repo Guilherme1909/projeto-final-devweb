@@ -76,7 +76,13 @@
     </div>
   </div>
   <div v-else class="flex justify-center items-center">
-    <div>Pensando....</div>
+    <q-circular-progress
+      indeterminate
+      rounded
+      size="50px"
+      color="lime"
+      class="q-ma-md"
+    />
   </div>
 </template>
 
